@@ -2,6 +2,18 @@ doctype html
 html
   head
     title= title
+    // http://v3.bootcss.com/getting-started/
+    link(rel='stylesheet', href='http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css')
+
     link(rel='stylesheet', href='/stylesheets/style.css')
+
+    block cssBlock
+
   body
     block content
+
+    script(scr="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js")
+
+    // http://v3.bootcss.com/getting-started/
+    script(scr="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js")
+    block jsBlock

@@ -1,0 +1,45 @@
+extends ../layout
+
+block content
+    #content
+        .panel
+            .header
+                ul.breadcrumb
+                    li
+                        a(href='/') 主页
+                    li.active 注册
+            .inner
+                if(error)
+                    .alert.alert-danger
+                        a.close(data-dismiss="alert",href="#") &times;
+                        strong= error
+                if(success)
+                    .alert.alert-success
+                        strong= success
+                else
+                    form#signup_form.form-horizontal(action="/signup",method="post")
+                        .form-group
+                            label.control-label.col-sm-2 用户名
+                            .col-sm-10
+                                input.form-control(type='text',placeholder='用户名',name='loginname',size='30',value='#{loginname || ""}')
+                        .form-group
+                            label.control-label.col-sm-2 密码
+                            .col-sm-10
+                                input.form-control(type='password',placeholder='密码',name='pass',size='30')
+                        .form-group
+                            label.control-label.col-sm-2 确认密码
+                            .col-sm-10
+                                input.form-control(type='password',placeholder='确认密码',name='re_pass',size='30')
+                        .form-group
+                            label.control-label.col-sm-2 电子邮箱
+                            .col-sm-10
+                                input.form-control(type='email',placeholder='电子邮箱',name='email',size='30',value='#{eamil || ""}')
+
+                        input(type='hidden',name='_csrf',value='#{csrf || ""}')
+
+                        .form-group
+                            .col-sm-offset-2.col-sm-10
+                                button.btn.btn-default(type="submit") 注册
+                                a(href="/auth/github")
+                                    span 通过Github 登陆
+
