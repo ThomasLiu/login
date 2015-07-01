@@ -31,12 +31,12 @@ var config = {
     cnzz_tracker_id: '',
 
     // mongodb 配置
-    db: 'mongodb://127.0.0.1/node_login',
+    db: 'mongodb://' + (process.env.MONGOLAB_URI || '127.0.0.1') + '/node_login',
 
     // redis 配置，默认是本地
-    redis_host: '127.0.0.1',
-    redis_port: 6379,
-    redis_db: 0,
+    redis_host: process.env.REDIS_HOST || 'localhost',
+    redis_port: process.env.REDIS_PORT || 6379,
+    redis_db: process.env.REDIS_DB || 0,
 
     session_secret: 'node_login_secret', // 务必修改
     auth_cookie_name: 'node_login',
@@ -123,7 +123,12 @@ var config = {
 }
 
 if (process.env.NODE_ENV === 'test') {
-    config.db = 'mongodb://127.0.0.1/node_club_test';
+    config.db = 'mongodb://127.0.0.1/node_login_test';
 }
+
+if (process.env.NODE_ENV === 'production') {
+    config.debug = false;
+};
+
 
 module.exports = config;
