@@ -149,3 +149,6 @@ exports.login = function (req, res, next) {
         }))
     });
 }
+
+
+aws ec2 run-instances --image-id ami-05355a6c --block-device-mappings '[{"DeviceName":"/dev/xdg","Ebs":{"VolumeSize":25,"DeleteOnTermination":false,"VolumeType":"io1”,"Iops":250}},{"DeviceName":"/dev/xdh","Ebs":{"VolumeSize":10,"DeleteOnTermination":false,"VolumeType":"io1”,"Iops":100}}]' --ebs-optimized --key-name 'thomas-key'
