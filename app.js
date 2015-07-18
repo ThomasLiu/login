@@ -22,6 +22,12 @@ var compress                 = require('compression');
 var requestLog               = require('./middlewares/request_log');
 var renderMiddleware                   = require('./middlewares/render');
 
+var dev_logger = require('../common/logger');
+
+dev_logger.log('config.debug: ' + config.debug);
+dev_logger.log('process.env.NODE_ENV: ' + process.env.NODE_ENV);
+
+
 // 静态文件目录
 var staticDir = path.join(__dirname, 'public');
 // assets
