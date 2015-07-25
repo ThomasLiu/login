@@ -62,8 +62,8 @@ var config = {
         host: 'smtp.126.com',
         port: 25,
         auth: {
-            user: 'thomas_0836@126.com',
-            pass: '5201314'
+            user: 'thomas_test@126.com',
+            pass: 'thomas123'
         }
     },
 
@@ -125,7 +125,6 @@ var config = {
 if (process.env.NODE_ENV === 'test') {
     config.db = 'mongodb://127.0.0.1/node_login_test';
 }
-process.env.NODE_ENV = 'production';
 if (process.env.NODE_ENV === 'production') {
     config.debug = false;
 };
