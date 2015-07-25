@@ -125,7 +125,7 @@ var config = {
 if (process.env.NODE_ENV === 'test') {
     config.db = 'mongodb://127.0.0.1/node_login_test';
 }
-
+process.env.NODE_ENV = 'production';
 if (process.env.NODE_ENV === 'production') {
     config.debug = false;
 };
