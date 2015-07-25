@@ -1,7 +1,8 @@
 var config = require('./config');
 
+var newrelic = null;
 if (!config.debug) {
-    require('newrelic');
+    newrelic = require('newrelic');
 }
 
 var express = require('express');
@@ -44,6 +45,10 @@ var urlinfo     = require('url').parse(config.host);
 config.hostname = urlinfo.hostname || config.host;
 
 var app = express();
+
+if (!config.debug && newrelic) {
+    app.locals.newrelic = newrelic;
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
