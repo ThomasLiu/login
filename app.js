@@ -1,9 +1,9 @@
 var config = require('./config');
 
-var newrelic = null;
-if (!config.debug) {
-    newrelic = require('newrelic');
-}
+//var newrelic = null;
+//if (!config.debug) {
+//    newrelic = require('newrelic');
+//}
 
 var express = require('express');
 var session = require('express-session');
@@ -46,9 +46,9 @@ config.hostname = urlinfo.hostname || config.host;
 
 var app = express();
 
-if (!config.debug && newrelic) {
-    app.locals.newrelic = newrelic;
-}
+//if (!config.debug && newrelic) {
+//    app.locals.newrelic = newrelic;
+//}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
